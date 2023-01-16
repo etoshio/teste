@@ -40,10 +40,8 @@ public class UploadService {
         metadata.put("Content-Type", file.getContentType());
         metadata.put("Content-Length", String.valueOf(file.getSize()));
 
-        String fileName = String.format("%s", file.getOriginalFilename());
-
         String url = amazonS3Service.upload(
-                bucketName, fileName, Optional.of(metadata), file.getInputStream());
+                bucketName, file.getOriginalFilename(), Optional.of(metadata), file.getInputStream());
 
         Image image = Image.builder()
                 .fileName(file.getOriginalFilename())
