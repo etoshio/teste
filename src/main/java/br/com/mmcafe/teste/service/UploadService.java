@@ -25,8 +25,8 @@ public class UploadService {
     @Value("${aws.s3.bucket.name}")
     private String bucketName;
 
-    @Value("${rabbitmq.exchange}")
-    private String exchange;
+    @Value("${rabbitmq.queue}")
+    private String queue;
 
     @Autowired
     private RabbitMQSender rabbitMQSender;
@@ -49,7 +49,7 @@ public class UploadService {
                 .url(url)
                 .build();
 
-        rabbitMQSender.send(exchange, image);
+        rabbitMQSender.send(queue, image);
 
         return true;
     }

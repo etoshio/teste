@@ -18,6 +18,7 @@ Desenvolva um serviço, utilizando Spring Boot com mensageria, seguindo as etapa
 
 ### Instalação
 - Adicionar as credenciais do S3 Bucket no arquivo application.properties
+- Criar a fila rabbitmq.queue
 - Rodar o script (mysql) que se encontra resources/dbcreate.sql
 - Rodar o TesteApplication
 
